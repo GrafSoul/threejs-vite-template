@@ -19,6 +19,4 @@ npm run dev
 ```
 This will start the server and open your default browser to your localhost. The site will reload automatically as you make changes to your code.
 
-© 2023 | ThreeJS Starter Pack with Vite | GrafSoul# threejs-vite-template
-# threejs-vite-template
-# threejs-vite-template
+© 2023 | ThreeJS Starter Pack with Vite | GrafSoul
