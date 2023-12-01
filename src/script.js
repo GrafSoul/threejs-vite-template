@@ -1,39 +1,62 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+//** Screen sizes */
+const aspectRatio = window.innerWidth / window.innerHeight;
 
 //** Scene */
 const scene = new THREE.Scene();
 
-//** Camera */
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-};
+//** Perspective Camera */
 const camera = new THREE.PerspectiveCamera(
   75,
-  sizes.width / sizes.height,
+  window.innerWidth / window.innerHeight,
   0.1,
   35
 );
 camera.position.z = 5;
 
+//** Orthographic Camera */
+// const camera = new THREE.OrthographicCamera(
+//   -1 * aspectRatio,
+//   1 * aspectRatio,
+//   1,
+//   -1,
+//   0.1,
+//   200
+// );
+// camera.position.z = 5;
+
+//** Light */
+
 //** Objects */
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xf00ff00 });
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cubeMesh);
 
 //** Renderer */
 const canvas = document.querySelector(".threejs");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setSize(sizes.width, sizes.height);
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-//** Animate */
-function animate() {
-  requestAnimationFrame(animate);
+//** Controls */
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.autoRotate = true;
+
+//** Resize Event Listeners */
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+//** Render Loop */
+function renderLoop() {
+  controls.update();
   renderer.render(scene, camera);
-
-  cubeMesh.rotation.x += 0.01;
-  cubeMesh.rotation.y += 0.01;
+  window.requestAnimationFrame(renderLoop);
 }
 
-animate();
+renderLoop();
