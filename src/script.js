@@ -1,9 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-//** Screen sizes */
-const aspectRatio = window.innerWidth / window.innerHeight;
-
 //** Scene */
 const scene = new THREE.Scene();
 
@@ -17,6 +14,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 5;
 
 //** Orthographic Camera */
+// const aspectRatio = window.innerWidth / window.innerHeight;
 // const camera = new THREE.OrthographicCamera(
 //   -1 * aspectRatio,
 //   1 * aspectRatio,
@@ -39,6 +37,9 @@ scene.add(cubeMesh);
 const canvas = document.querySelector(".threejs");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+
+//** Pixel Ratio */
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 //** Controls */
 const controls = new OrbitControls(camera, canvas);
