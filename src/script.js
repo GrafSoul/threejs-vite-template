@@ -33,6 +33,18 @@ const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xf00ff00 });
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cubeMesh);
 
+cubeMesh.position.y = 1;
+cubeMesh.position.x = 1;
+cubeMesh.position.z = 1;
+
+//** Helpers */
+const axesHelper = new THREE.AxesHelper(5);
+scene.add(axesHelper);
+
+//** Grid */
+const gridHelper = new THREE.GridHelper(10);
+scene.add(gridHelper);
+
 //** Renderer */
 const canvas = document.querySelector(".threejs");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
