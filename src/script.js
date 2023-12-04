@@ -13,29 +13,18 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 5;
 
-//** Orthographic Camera */
-// const aspectRatio = window.innerWidth / window.innerHeight;
-// const camera = new THREE.OrthographicCamera(
-//   -1 * aspectRatio,
-//   1 * aspectRatio,
-//   1,
-//   -1,
-//   0.1,
-//   200
-// );
-// camera.position.z = 5;
-
-//** Light */
-
 //** Objects */
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xf00ff00 });
+const cubeMaterial = new THREE.MeshBasicMaterial({
+  color: 0xf00ff00,
+  wireframe: true,
+});
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-scene.add(cubeMesh);
+cubeMesh.position.x = 0.5;
+cubeMesh.position.y = 0.5;
+cubeMesh.position.z = 0.5;
 
-cubeMesh.position.y = 1;
-cubeMesh.position.x = 1;
-cubeMesh.position.z = 1;
+scene.add(cubeMesh);
 
 //** Helpers */
 const axesHelper = new THREE.AxesHelper(5);
