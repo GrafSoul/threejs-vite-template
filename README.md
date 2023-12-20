@@ -1,4 +1,4 @@
-# ThreeJS Starter Pack with Vite
+# ThreeJS Basis Starter Pack with Vite
 
 ### Prerequisites
 Before you start, make sure you have Node.js installed on your machine: (https://nodejs.org/en/download/)
@@ -19,4 +19,4 @@ npm run dev
 ```
 This will start the server and open your default browser to your localhost. The site will reload automatically as you make changes to your code.
 
-© 2023 | ThreeJS Starter Pack with Vite | GrafSoul
+© 2023 | ThreeJS Basis Starter Pack with Vite | GrafSoul
