@@ -1,7 +1,7 @@
 {
-  "name": "threejs-vite-template",
+  "name": "threejs-basis-template",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
